@@ -1,2 +1,2 @@
 # easynet
-EasyNet project repository
+The EasyNet project repository. 
