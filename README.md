@@ -9,11 +9,29 @@ The code consists of an Emergency Medical Service Simulator, which can be custom
 
 ## Simulator
 
+The folder `simulator` contains the source code of the C++ EMS simulator used in the project. It relies on the OSRM-backend library, which should be downloaded and installed according to the instructions on the GitHub repository [https://github.com/Project-OSRM/osrm-backend](https://github.com/Project-OSRM/osrm-backend). 
 
+On MacOS it can be easily installed using the [Homebrew package manager](https://brew.sh) by issuing the following command:
+
+```sh
+brew install osrm-backend
+```
+
+The compilation of the simulator relies on the [`CMake`](https://cmake.org) build tool, which also handles the specific dependencies. To compile the code you are required to give the following commands.
+
+```
+cd simulator
+mkdir build
+cd build
+cmake ..
+make
+```
+
+This will download the source code of the dependencies (namely `simcpp20` as the Discrete Event Simulation framework, `indicators` for a basic progress bar, `termcolor` for enhanced visualization of the different emergency color codes, `range-v3` for ranges support and `SQLiteCpp` for writing the logs to sqlite files).
 
 ## Emergency Data
 
-The folder "Anonymized Instances" contains a set of 45 instances related to emergencies. These instances are provided in both CSV and TXT formats. They represent real-world emergencies that have been anonymized in terms of spatial and temporal information. Despite the anonymization, the temporal pattern (i.e., the average number of emergencies per day and per hour) and the spatial information (i.e., preserving the zone within the municipality) have been retained.
+The folder `anonymized-instances` contains a set of 45 instances related to emergencies. These instances are provided in both CSV and TXT formats. They represent real-world emergencies that have been anonymized in terms of spatial and temporal information. Despite the anonymization, the temporal pattern (i.e., the average number of emergencies per day and per hour) and the spatial information (i.e., preserving the zone within the municipality) have been retained.
 
 Each instance includes emergency data for a one-week time period.
 
